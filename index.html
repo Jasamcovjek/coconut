@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCONUT SMP | Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="icons/iconnobg.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="icons/icon.png" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/80'">
+            <div class="server-ip">COCONUTSMP.NET</div>
+        </div>
+    </header>
+
+    <main>
+        <section id="view-store" class="view active">
+            <div class="keys-grid">
+                <div class="key-card" data-base-price="0.99">
+                    <img src="icons/common.png" alt="Key" class="key-img" onerror="this.src='https://via.placeholder.com/80?text=Common'">
+                    <h3>Common</h3>
+                    <p class="price">$0.99</p>
+                    <div class="qty-selector">
+                        <button class="qty-btn active" data-mult="1">1x</button>
+                        <button class="qty-btn" data-mult="5">5x</button>
+                        <button class="qty-btn" data-mult="10">10x</button>
+                        <button class="qty-btn" data-mult="20">20x</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">🛒 Add to Cart</button>
+                </div>
+
+                <div class="key-card" data-base-price="2.99">
+                    <img src="icons/prime.png" alt="Key" class="key-img" onerror="this.src='https://via.placeholder.com/80?text=Prime'">
+                    <h3>Prime</h3>
+                    <p class="price">$2.99</p>
+                    <div class="qty-selector">
+                        <button class="qty-btn active" data-mult="1">1x</button>
+                        <button class="qty-btn" data-mult="5">5x</button>
+                        <button class="qty-btn" data-mult="10">10x</button>
+                        <button class="qty-btn" data-mult="20">20x</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">🛒 Add to Cart</button>
+                </div>
+
+                <div class="key-card popular" data-base-price="4.99">
+                    <div class="popular-badge">Most Popular</div>
+                    <img src="icons/amethyst.png" alt="Key" class="key-img" onerror="this.src='https://via.placeholder.com/80?text=Amethyst'">
+                    <h3>Amethyst</h3>
+                    <p class="price">$4.99</p>
+                    <div class="qty-selector">
+                        <button class="qty-btn active" data-mult="1">1x</button>
+                        <button class="qty-btn" data-mult="5">5x</button>
+                        <button class="qty-btn" data-mult="10">10x</button>
+                        <button class="qty-btn" data-mult="20">20x</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">🛒 Add to Cart</button>
+                </div>
+
+                <div class="key-card" data-base-price="3.99">
+                    <img src="icons/gold.png" alt="Key" class="key-img" onerror="this.src='https://via.placeholder.com/80?text=Gold'">
+                    <h3>Gold</h3>
+                    <p class="price">$3.99</p>
+                    <div class="qty-selector">
+                        <button class="qty-btn active" data-mult="1">1x</button>
+                        <button class="qty-btn" data-mult="5">5x</button>
+                        <button class="qty-btn" data-mult="10">10x</button>
+                        <button class="qty-btn" data-mult="20">20x</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">🛒 Add to Cart</button>
+                </div>
+
+                <div class="key-card" data-base-price="2.99">
+                    <img src="icons/crimson.png" alt="Key" class="key-img" onerror="this.src='https://via.placeholder.com/80?text=Crimson'">
+                    <h3>Crimson</h3>
+                    <p class="price">$2.99</p>
+                    <div class="qty-selector">
+                        <button class="qty-btn active" data-mult="1">1x</button>
+                        <button class="qty-btn" data-mult="5">5x</button>
+                        <button class="qty-btn" data-mult="10">10x</button>
+                        <button class="qty-btn" data-mult="20">20x</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">🛒 Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-username" class="view">
+            <div class="username-box">
+                <h2>Username</h2>
+                <p style="color:#888; margin-bottom: 20px;">Enter your Minecraft name to proceed.</p>
+                <div class="input-group">
+                    <input type="text" id="mc-username" placeholder="Minecraft IGN...">
+                    <button class="continue-btn" onclick="goToCryptoSelect()">Next</button>
+                </div>
+                <p id="error-msg" class="error" style="display:none; color: #ff4d4d; margin-top: 10px;">Please enter your name!</p>
+            </div>
+            <button class="back-link" onclick="goBack('view-store')">← Back to Store</button>
+        </section>
+
+        <section id="view-crypto-select" class="view">
+            <div class="crypto-select-box">
+                <h2>Choose Currency</h2>
+                <p style="margin-bottom: 20px; color: #aaa;">Amount: <strong id="checkout-total-display" style="color:#00ffcc;">$0.00</strong></p>
+                <div class="crypto-grid">
+                    <button class="crypto-btn" onclick="generatePayment('bitcoin', 'BTC')">BTC</button>
+                    <button class="crypto-btn" onclick="generatePayment('ethereum', 'ETH')">ETH</button>
+                    <button class="crypto-btn" onclick="generatePayment('litecoin', 'LTC')">LTC</button>
+                    <button class="crypto-btn" onclick="generatePayment('tether', 'USDT')">USDT (ETH)</button>
+                    <button class="crypto-btn" onclick="generatePayment('solana', 'SOL')">SOL</button>
+                    <button class="crypto-btn" onclick="generatePayment('tron', 'TRX')">TRX</button>
+                    <button class="crypto-btn" onclick="generatePayment('binancecoin', 'BNB')">BNB</button>
+                    <button class="crypto-btn" onclick="generatePayment('ripple', 'XRP')">XRP</button>
+                    <button class="crypto-btn" onclick="generatePayment('dogecoin', 'DOGE')">DOGE</button>
+                    <button class="crypto-btn" onclick="generatePayment('cardano', 'ADA')">ADA</button>
+                </div>
+            </div>
+            <button class="back-link" onclick="goBack('view-username')">← Back</button>
+        </section>
+
+        <section id="view-payment" class="view">
+            <div class="crypto-box payment-final">
+                <div class="timer" id="payment-timer">60:00</div>
+                
+                <div class="qr-container">
+                    <img id="qr-image" src="" alt="QR Code">
+                </div>
+
+                <div class="payment-instructions">
+                    <p>Send exactly:</p>
+                    <div class="amount-badge">
+                        <span id="crypto-amount">...</span> <span id="crypto-symbol"></span>
+                    </div>
+                    <p style="font-size: 13px; color: #666; margin-top: 5px;">≈ $<span id="usd-equivalent"></span> USD</p>
+                    
+                    <div class="address-label">Wallet Address:</div>
+                    <div class="wallet-address" id="wallet-address" onclick="copyAddress()">Click to copy address</div>
+                    
+                    <div class="important-note">
+                        ⚠️ <strong>IMPORTANT:</strong> When sending the transaction, you MUST add a note/memo with your Minecraft IGN: <br>
+                        <strong id="display-ign" style="color: #ff6600; font-size: 18px;"></strong>
+                    </div>
+                </div>
+            </div>
+            <button class="back-link" onclick="goBack('view-crypto-select')">Cancel & Return</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-logo">🥥 COCONUT SMP</div>
+        <div class="footer-links">
+            <a href="#">PRIVACY</a>
+            <a href="#">SUPPORT</a>
+            <a href="#">TERMS</a>
+            <a href="#">REFUND</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
