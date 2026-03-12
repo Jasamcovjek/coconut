@@ -13,13 +13,34 @@
     <header>
         <div class="logo-container">
             <img src="icons/icon.png" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/80'">
-            <div class="server-ip">MC.COCONUTSMP.LOL</div>
+            <div class="server-ip">COCONUTSMP.NET</div>
         </div>
     </header>
 
     <main>
         <section id="view-store" class="view active">
             <div class="keys-grid">
+                
+                <div class="rank-banner" style="width: 100%;">
+                    <div class="rank-info">
+                        <h2>Coconut+</h2>
+                        <p class="subtitle">Lifetime Rank</p>
+                        <div class="perks">
+                            <p>+3 Homes</p>
+                            <p>+/hide (scrambles username)</p>
+                            <p>+/fly in lobbies</p>
+                            <p>+Faster Auction Buying (/settings)</p>
+                            <p>+Get shards everywhere</p>
+                            <p>+Shorter /RTP Cooldown</p>
+                            <p>+Priority Queue</p>
+                        </div>
+                    </div>
+                    <div class="rank-action" style="text-align: right;">
+                        <h2 style="font-size: 32px; margin-bottom: 15px;">$7.99</h2>
+                        <button class="add-to-cart-btn" data-name="Coconut+ Rank" data-price="7.99" onclick="addRankToCart(this)">🛒 Add to Cart</button>
+                    </div>
+                </div>
+
                 <div class="key-card" data-base-price="0.99">
                     <img src="icons/common.png" alt="Key" class="key-img" onerror="this.src='https://via.placeholder.com/80?text=Common'">
                     <h3>Common</h3>
@@ -143,10 +164,24 @@
                         ⚠️ <strong>IMPORTANT:</strong> When sending the transaction, you MUST add a note/memo with your Minecraft IGN: <br>
                         <strong id="display-ign" style="color: #ff6600; font-size: 18px;"></strong>
                     </div>
+
+                    <button class="confirm-payment-btn" onclick="confirmPayment()">✅ I have sent the payment</button>
                 </div>
             </div>
             <button class="back-link" onclick="goBack('view-crypto-select')">Cancel & Return</button>
         </section>
+
+        <section id="view-success" class="view">
+            <div class="username-box" style="border-color: #00cc66;">
+                <h2 style="color: #00cc66;">Payment Pending!</h2>
+                <p style="color:#ddd; margin-bottom: 20px; line-height: 1.6;">
+                    Your payment request has been sent to our staff. <br>
+                    Please allow <strong>5-15 minutes</strong> for the transaction to be confirmed on the blockchain and credited to your account.
+                </p>
+                <button class="continue-btn" onclick="goBack('view-store')">Return to Store</button>
+            </div>
+        </section>
+
     </main>
 
     <footer>
@@ -161,5 +196,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>

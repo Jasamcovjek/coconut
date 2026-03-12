@@ -421,3 +421,55 @@ footer {
     font-size: 14px;
     line-height: 1.5;
 }
+
+/* --- DODACI ZA NOVI SISTEM PLAĆANJA --- */
+
+.confirm-payment-btn {
+    width: 100%;
+    background-color: #00cc66;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 4px 15px rgba(0, 204, 102, 0.3);
+}
+
+.confirm-payment-btn:hover {
+    background-color: #00b359;
+    transform: translateY(-2px);
+}
+
+.confirm-payment-btn:active {
+    transform: translateY(0);
+}
+
+/* Osigurava da je rank banner full width */
+.keys-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.rank-banner {
+    width: 100%; /* Ovo forsira banner da ide preko cijele širine iznad ključeva */
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .rank-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .rank-action {
+        text-align: center !important;
+        width: 100%;
+    }
+}
