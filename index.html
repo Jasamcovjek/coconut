@@ -6,9 +6,11 @@
     <title>COCONUT SMP | Store</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="icons/iconnobg.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div class="background-glow"></div>
 
     <header>
         <div class="logo-container">
@@ -19,28 +21,45 @@
 
     <main>
         <section id="view-store" class="view active">
-            <div class="keys-grid">
-                
-                <div class="rank-banner" style="width: 100%;">
-                    <div class="rank-info">
-                        <h2>Coconut+</h2>
-                        <p class="subtitle">Lifetime Rank</p>
-                        <div class="perks">
-                            <p>+3 Homes</p>
-                            <p>+/hide (scrambles username)</p>
-                            <p>+/fly in lobbies</p>
-                            <p>+Faster Auction Buying (/settings)</p>
-                            <p>+Get shards everywhere</p>
-                            <p>+Shorter /RTP Cooldown</p>
-                            <p>+Priority Queue</p>
+            
+            <div class="donate-section">
+                <div class="donate-card">
+                    <div class="donate-content">
+                        <h2>Support the Server!</h2>
+                        <p>Svaka donacija pomaže u održavanju i razvoju servera.</p>
+                    </div>
+                    <a href="https://nowpayments.io/donation?api_key=6c417e4b-7f9d-4bf2-b3e0-e0d88c515e18" target="_blank" class="now-pay-btn">
+                        <img src="https://nowpayments.io/images/embeds/donation-button-white.svg" alt="Donate">
+                    </a>
+                </div>
+            </div>
+
+            <div class="featured-rank-section">
+                <div class="rank-card-premium">
+                    <div class="rank-badge">LIFETIME RANK</div>
+                    <div class="rank-content-wrapper">
+                        <div class="rank-text">
+                            <h2>Coconut<span>+</span></h2>
+                            <p>Osiguraj si najbolji doživljaj na serveru uz trajne pogodnosti i prioritet.</p>
+                            <div class="perks-list">
+                                <span>+3 Homes</span>
+                                <span>/hide username</span>
+                                <span>/fly in lobbies</span>
+                                <span>Priority Queue</span>
+                                <span>Faster Auction</span>
+                            </div>
+                        </div>
+                        <div class="rank-price-box">
+                            <div class="old-price">$12.99</div>
+                            <div class="current-price">$7.99</div>
+                            <button class="buy-rank-btn" data-name="Coconut+ Rank" data-price="7.99" onclick="addRankToCart(this)">🛒 Dodaj u košaricu</button>
                         </div>
                     </div>
-                    <div class="rank-action" style="text-align: right;">
-                        <h2 style="font-size: 32px; margin-bottom: 15px;">$7.99</h2>
-                        <button class="add-to-cart-btn" data-name="Coconut+ Rank" data-price="7.99" onclick="addRankToCart(this)">🛒 Add to Cart</button>
-                    </div>
                 </div>
+            </div>
 
+            <div class="keys-grid">
+                
                 <div class="key-card" data-base-price="0.99">
                     <img src="icons/common.png" alt="Key" class="key-img" onerror="this.src='https://via.placeholder.com/80?text=Common'">
                     <h3>Common</h3>
@@ -49,7 +68,6 @@
                         <button class="qty-btn active" data-mult="1">1x</button>
                         <button class="qty-btn" data-mult="5">5x</button>
                         <button class="qty-btn" data-mult="10">10x</button>
-                        <button class="qty-btn" data-mult="20">20x</button>
                     </div>
                     <button class="add-to-cart-btn" onclick="addToCart(this)">🛒 Add to Cart</button>
                 </div>
@@ -62,7 +80,6 @@
                         <button class="qty-btn active" data-mult="1">1x</button>
                         <button class="qty-btn" data-mult="5">5x</button>
                         <button class="qty-btn" data-mult="10">10x</button>
-                        <button class="qty-btn" data-mult="20">20x</button>
                     </div>
                     <button class="add-to-cart-btn" onclick="addToCart(this)">🛒 Add to Cart</button>
                 </div>
@@ -76,7 +93,6 @@
                         <button class="qty-btn active" data-mult="1">1x</button>
                         <button class="qty-btn" data-mult="5">5x</button>
                         <button class="qty-btn" data-mult="10">10x</button>
-                        <button class="qty-btn" data-mult="20">20x</button>
                     </div>
                     <button class="add-to-cart-btn" onclick="addToCart(this)">🛒 Add to Cart</button>
                 </div>
@@ -89,7 +105,6 @@
                         <button class="qty-btn active" data-mult="1">1x</button>
                         <button class="qty-btn" data-mult="5">5x</button>
                         <button class="qty-btn" data-mult="10">10x</button>
-                        <button class="qty-btn" data-mult="20">20x</button>
                     </div>
                     <button class="add-to-cart-btn" onclick="addToCart(this)">🛒 Add to Cart</button>
                 </div>
@@ -102,12 +117,11 @@
                         <button class="qty-btn active" data-mult="1">1x</button>
                         <button class="qty-btn" data-mult="5">5x</button>
                         <button class="qty-btn" data-mult="10">10x</button>
-                        <button class="qty-btn" data-mult="20">20x</button>
                     </div>
                     <button class="add-to-cart-btn" onclick="addToCart(this)">🛒 Add to Cart</button>
                 </div>
-            </div>
-        </section>
+
+            </div> </section>
 
         <section id="view-username" class="view">
             <div class="username-box">
@@ -145,26 +159,21 @@
         <section id="view-payment" class="view">
             <div class="crypto-box payment-final">
                 <div class="timer" id="payment-timer">60:00</div>
-                
                 <div class="qr-container">
                     <img id="qr-image" src="" alt="QR Code">
                 </div>
-
                 <div class="payment-instructions">
                     <p>Send exactly:</p>
                     <div class="amount-badge">
                         <span id="crypto-amount">...</span> <span id="crypto-symbol"></span>
                     </div>
                     <p style="font-size: 13px; color: #666; margin-top: 5px;">≈ $<span id="usd-equivalent"></span> USD</p>
-                    
                     <div class="address-label">Wallet Address:</div>
                     <div class="wallet-address" id="wallet-address" onclick="copyAddress()">Click to copy address</div>
-                    
                     <div class="important-note">
-                        ⚠️ <strong>IMPORTANT:</strong> When sending the transaction, you MUST add a note/memo with your Minecraft IGN: <br>
+                        ⚠️ <strong>IMPORTANT:</strong> When sending, add a note with your Minecraft IGN: <br>
                         <strong id="display-ign" style="color: #ff6600; font-size: 18px;"></strong>
                     </div>
-
                     <button class="confirm-payment-btn" onclick="confirmPayment()">✅ I have sent the payment</button>
                 </div>
             </div>
@@ -176,12 +185,11 @@
                 <h2 style="color: #00cc66;">Payment Pending!</h2>
                 <p style="color:#ddd; margin-bottom: 20px; line-height: 1.6;">
                     Your payment request has been sent to our staff. <br>
-                    Please allow <strong>5-15 minutes</strong> for the transaction to be confirmed on the blockchain and credited to your account.
+                    Please allow 5-15 minutes for confirmation.
                 </p>
                 <button class="continue-btn" onclick="goBack('view-store')">Return to Store</button>
             </div>
         </section>
-
     </main>
 
     <footer>

@@ -473,3 +473,415 @@ footer {
         width: 100%;
     }
 }
+
+:root {
+    --bg: #0a0a0b;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.08);
+    --accent: #007cff;
+    --accent-glow: rgba(0, 124, 255, 0.4);
+    --text-main: #ffffff;
+    --text-dim: #a1a1aa;
+    --popular: #ff6b00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+/* Pozadinski sjaj za atmosferu */
+.background-glow {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% -20%, #1e3a8a 0%, transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+header {
+    padding: 60px 0 40px;
+    text-align: center;
+}
+
+.logo-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+    margin-bottom: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px var(--accent-glow);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-img:hover { transform: scale(1.1) rotate(5deg); }
+
+.server-ip {
+    display: inline-block;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    backdrop-filter: blur(10px);
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 100px;
+}
+
+/* Donate Section */
+.donate-section {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.donate-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 20px 30px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.donate-content h2 { font-size: 1.2rem; }
+.donate-content p { color: var(--text-dim); font-size: 0.9rem; }
+
+/* Coconut+ Banner */
+.rank-banner {
+    width: 100%;
+    background: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc);
+    border-radius: 24px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+.rank-shimmer {
+    position: absolute;
+    top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: skewX(-20deg);
+    animation: shimmer 5s infinite;
+}
+
+@keyframes shimmer {
+    100% { left: 200%; }
+}
+
+.premium-tag {
+    background: rgba(255,255,255,0.2);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.perks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.perks-grid span {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dot { width: 5px; height: 5px; background: white; border-radius: 50%; }
+
+.price-tag {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+/* Key Cards */
+.keys-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.key-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.key-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.2);
+}
+
+.key-card.popular {
+    border: 2px solid var(--popular);
+    box-shadow: 0 10px 30px rgba(255, 107, 0, 0.15);
+}
+
+.popular-badge {
+    position: absolute;
+    top: 15px; right: 15px;
+    background: var(--popular);
+    font-size: 0.65rem;
+    font-weight: 900;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.key-img {
+    height: 100px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 10px 0 25px;
+    color: var(--accent);
+}
+
+/* Qty Selector */
+.qty-selector {
+    display: flex;
+    background: rgba(0,0,0,0.2);
+    padding: 5px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.qty-btn {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: var(--text-dim);
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.qty-btn.active {
+    background: var(--accent);
+    color: white;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    border: none;
+    background: white;
+    color: black;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-to-cart-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.add-to-cart-btn.primary {
+    background: black;
+    color: white;
+}
+
+/* Footer */
+footer {
+    padding: 60px 20px;
+    background: rgba(0,0,0,0.4);
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+.footer-logo { font-weight: 800; font-size: 1.2rem; margin-bottom: 10px; }
+footer p { color: var(--text-dim); font-size: 0.8rem; margin-bottom: 20px; }
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.footer-links a:hover { color: var(--accent); }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .rank-banner { flex-direction: column; text-align: center; padding: 30px; }
+    .perks-grid { grid-template-columns: 1fr; }
+    .rank-action { margin-top: 30px; }
+    .donate-card { flex-direction: column; gap: 15px; text-align: center; }
+}
+
+/* --- PREMIUM RANK SECTION --- */
+.featured-rank-section {
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.rank-card-premium {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+    border: 1px solid rgba(0, 124, 255, 0.3);
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Suptilni plavi sjaj u kutu */
+.rank-card-premium::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0, 124, 255, 0.2) 0%, transparent 70%);
+    z-index: 0;
+}
+
+.rank-badge {
+    display: inline-block;
+    background: #007cff;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.rank-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.rank-text h2 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.rank-text h2 span {
+    color: #007cff;
+}
+
+.rank-text p {
+    color: #888;
+    max-width: 400px;
+    margin-bottom: 25px;
+}
+
+.perks-list {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.perks-list span {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #ccc;
+}
+
+/* Cijena i gumb desno */
+.rank-price-box {
+    text-align: right;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #555;
+    font-size: 18px;
+    margin-bottom: -5px;
+}
+
+.current-price {
+    font-size: 48px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.buy-rank-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buy-rank-btn:hover {
+    background: #007cff;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 124, 255, 0.3);
+}
+
+/* Media query za mobitele */
+@media (max-width: 768px) {
+    .rank-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    .rank-price-box {
+        margin-top: 30px;
+        text-align: center;
+    }
+    .perks-list {
+        justify-content: center;
+    }
+}
